@@ -1,30 +1,21 @@
 export type ReleaseIntent = 'ready' | 'needs-fix' | 'hold' | 'released'
 
-export interface AppChecks {
-  launch: boolean
-  mainFeature: boolean
-  ui: boolean
-  crashFree: boolean
-}
-
 export interface App {
   id: number
   name: string
   slug: string
   emoji: string
-  bundleId?: string
-  githubUrl?: string
-  testflightUrl?: string
-  appStoreUrl?: string
-  releaseIntent: ReleaseIntent
-  fixNotes?: string
-  checks: AppChecks
-  testNotes?: string
-  lastUpdated?: string
-}
-
-export interface AppsData {
-  version: number
-  lastUpdated: string
-  apps: App[]
+  bundle_id?: string
+  github_url?: string
+  testflight_url?: string
+  appstore_url?: string
+  release_intent: ReleaseIntent
+  fix_notes?: string
+  check_launch: boolean
+  check_main_feature: boolean
+  check_ui: boolean
+  check_crash_free: boolean
+  test_notes?: string
+  created_at?: string
+  updated_at?: string
 }

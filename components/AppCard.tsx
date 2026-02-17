@@ -1,6 +1,6 @@
 'use client'
 
-import { App, AppChecks, ReleaseIntent } from '@/lib/types'
+import { App, ReleaseIntent } from '@/lib/types'
 
 interface AppCardProps {
   app: App
@@ -22,34 +22,28 @@ const intentLabels: Record<ReleaseIntent, string> = {
 }
 
 export default function AppCard({ app, onUpdate }: AppCardProps) {
-  const handleCheckChange = (key: keyof AppChecks) => {
+  const handleCheckChange = (key: 'check_launch' | 'check_main_feature' | 'check_ui' | 'check_crash_free') => {
     onUpdate({
       ...app,
-      checks: {
-        ...app.checks,
-        [key]: !app.checks[key],
-      },
-      lastUpdated: new Date().toISOString(),
+      [key]: !app[key],
     })
   }
 
   const handleIntentChange = (intent: ReleaseIntent) => {
     onUpdate({
       ...app,
-      releaseIntent: intent,
-      lastUpdated: new Date().toISOString(),
+      release_intent: intent,
     })
   }
 
-  const handleNotesChange = (field: 'fixNotes' | 'testNotes', value: string) => {
+  const handleNotesChange = (field: 'fix_notes' | 'test_notes', value: string) => {
     onUpdate({
       ...app,
       [field]: value,
-      lastUpdated: new Date().toISOString(),
     })
   }
 
-  const allChecksPassed = Object.values(app.checks).every(Boolean)
+  const allChecksPassed = app.check_launch && app.check_main_feature && app.check_ui && app.check_crash_free
 
   return (
     <div className="bg-zinc-900 border border-zinc-800 rounded-xl p-5 hover:border-zinc-700 transition-colors">
@@ -61,8 +55,8 @@ export default function AppCard({ app, onUpdate }: AppCardProps) {
             <p className="text-zinc-500 text-sm">{app.slug}</p>
           </div>
         </div>
-        <div className={`px-3 py-1 rounded-full text-xs border ${intentColors[app.releaseIntent]}`}>
-          {intentLabels[app.releaseIntent]}
+        <div className={`px-3 py-1 rounded-full text-xs border ${intentColors[app.release_intent]}`}>
+          {intentLabels[app.release_intent]}
         </div>
       </div>
 
@@ -73,7 +67,7 @@ export default function AppCard({ app, onUpdate }: AppCardProps) {
             key={intent}
             onClick={() => handleIntentChange(intent)}
             className={`px-3 py-1 rounded-lg text-xs transition-colors ${
-              app.releaseIntent === intent
+              app.release_intent === intent
                 ? intentColors[intent]
                 : 'bg-zinc-800 text-zinc-500 hover:bg-zinc-700'
             }`}
@@ -88,10 +82,10 @@ export default function AppCard({ app, onUpdate }: AppCardProps) {
         <p className="text-sm text-zinc-400 mb-2">動作確認チェック {allChecksPassed ? '✅' : ''}</p>
         <div className="grid grid-cols-2 gap-2">
           {[
-            { key: 'launch' as const, label: '起動確認' },
-            { key: 'mainFeature' as const, label: '主要機能' },
-            { key: 'ui' as const, label: 'UI確認' },
-            { key: 'crashFree' as const, label: 'クラッシュなし' },
+            { key: 'check_launch' as const, label: '起動確認' },
+            { key: 'check_main_feature' as const, label: '主要機能' },
+            { key: 'check_ui' as const, label: 'UI確認' },
+            { key: 'check_crash_free' as const, label: 'クラッシュなし' },
           ].map(({ key, label }) => (
             <label
               key={key}
@@ -99,7 +93,7 @@ export default function AppCard({ app, onUpdate }: AppCardProps) {
             >
               <input
                 type="checkbox"
-                checked={app.checks[key]}
+                checked={app[key]}
                 onChange={() => handleCheckChange(key)}
                 className="w-4 h-4 rounded border-zinc-600 bg-zinc-800 text-green-500 focus:ring-green-500/50"
               />
@@ -110,12 +104,12 @@ export default function AppCard({ app, onUpdate }: AppCardProps) {
       </div>
 
       {/* Fix Notes */}
-      {app.releaseIntent === 'needs-fix' && (
+      {app.release_intent === 'needs-fix' && (
         <div className="mb-4">
           <label className="text-sm text-zinc-400 block mb-1">修正メモ</label>
           <textarea
-            value={app.fixNotes || ''}
-            onChange={(e) => handleNotesChange('fixNotes', e.target.value)}
+            value={app.fix_notes || ''}
+            onChange={(e) => handleNotesChange('fix_notes', e.target.value)}
             placeholder="修正が必要な内容..."
             className="w-full bg-zinc-800 border border-zinc-700 rounded-lg px-3 py-2 text-sm resize-none h-20 focus:border-zinc-600 focus:outline-none"
           />
@@ -126,8 +120,8 @@ export default function AppCard({ app, onUpdate }: AppCardProps) {
       <div className="mb-4">
         <label className="text-sm text-zinc-400 block mb-1">テストメモ</label>
         <textarea
-          value={app.testNotes || ''}
-          onChange={(e) => handleNotesChange('testNotes', e.target.value)}
+          value={app.test_notes || ''}
+          onChange={(e) => handleNotesChange('test_notes', e.target.value)}
           placeholder="テスト結果のメモ..."
           className="w-full bg-zinc-800 border border-zinc-700 rounded-lg px-3 py-2 text-sm resize-none h-16 focus:border-zinc-600 focus:outline-none"
         />
@@ -135,9 +129,9 @@ export default function AppCard({ app, onUpdate }: AppCardProps) {
 
       {/* Links */}
       <div className="flex gap-2 flex-wrap text-xs">
-        {app.githubUrl && (
+        {app.github_url && (
           <a
-            href={app.githubUrl}
+            href={app.github_url}
             target="_blank"
             rel="noopener noreferrer"
             className="px-3 py-1.5 bg-zinc-800 hover:bg-zinc-700 rounded-lg transition-colors"
@@ -145,9 +139,9 @@ export default function AppCard({ app, onUpdate }: AppCardProps) {
             GitHub
           </a>
         )}
-        {app.testflightUrl && (
+        {app.testflight_url && (
           <a
-            href={app.testflightUrl}
+            href={app.testflight_url}
             target="_blank"
             rel="noopener noreferrer"
             className="px-3 py-1.5 bg-blue-600/20 text-blue-400 hover:bg-blue-600/30 rounded-lg transition-colors"
@@ -155,9 +149,9 @@ export default function AppCard({ app, onUpdate }: AppCardProps) {
             TestFlight
           </a>
         )}
-        {app.appStoreUrl && (
+        {app.appstore_url && (
           <a
-            href={app.appStoreUrl}
+            href={app.appstore_url}
             target="_blank"
             rel="noopener noreferrer"
             className="px-3 py-1.5 bg-purple-600/20 text-purple-400 hover:bg-purple-600/30 rounded-lg transition-colors"

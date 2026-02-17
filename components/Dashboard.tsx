@@ -1,97 +1,78 @@
 'use client'
 
 import { useState, useEffect, useCallback, useRef } from 'react'
-import { App, AppsData, ReleaseIntent } from '@/lib/types'
-import { getAppsFromGitHub, saveAppsToGitHub } from '@/lib/github'
+import { App, ReleaseIntent } from '@/lib/types'
+import { supabase } from '@/lib/supabase'
 import AppCard from './AppCard'
 import FilterBar from './FilterBar'
-import GitHubSetup from './GitHubSetup'
-
-const DEFAULT_APPS_DATA: AppsData = {
-  version: 1,
-  lastUpdated: new Date().toISOString(),
-  apps: [],
-}
 
 export default function Dashboard() {
-  const [token, setToken] = useState<string | null>(null)
   const [loading, setLoading] = useState(true)
   const [saving, setSaving] = useState(false)
-  const [appsData, setAppsData] = useState<AppsData>(DEFAULT_APPS_DATA)
-  const [sha, setSha] = useState<string | null>(null)
+  const [apps, setApps] = useState<App[]>([])
   const [filter, setFilter] = useState<ReleaseIntent | 'all' | 'unchecked'>('all')
   const [searchQuery, setSearchQuery] = useState('')
-  const [hasChanges, setHasChanges] = useState(false)
+  const [pendingUpdates, setPendingUpdates] = useState<Map<number, App>>(new Map())
   const saveTimeoutRef = useRef<NodeJS.Timeout | null>(null)
 
-  // Load token from localStorage
-  useEffect(() => {
-    const savedToken = localStorage.getItem('github_token')
-    if (savedToken) {
-      setToken(savedToken)
+  // Load apps from Supabase
+  const loadApps = useCallback(async () => {
+    setLoading(true)
+    const { data, error } = await supabase
+      .from('apps')
+      .select('*')
+      .order('id')
+    
+    if (error) {
+      console.error('Error loading apps:', error)
     } else {
-      setLoading(false)
+      setApps(data || [])
     }
+    setLoading(false)
   }, [])
 
-  // Load apps from GitHub
-  const loadApps = useCallback(async () => {
-    if (!token) return
-    
-    setLoading(true)
-    const result = await getAppsFromGitHub(token)
-    
-    if (result) {
-      try {
-        const data = JSON.parse(result.content) as AppsData
-        setAppsData(data)
-        setSha(result.sha)
-      } catch {
-        console.error('Failed to parse apps.json')
-      }
-    }
-    
-    setLoading(false)
-  }, [token])
-
   useEffect(() => {
-    if (token) {
-      loadApps()
-    }
-  }, [token, loadApps])
+    loadApps()
+  }, [loadApps])
 
-  // Auto-save with debounce
-  const saveApps = useCallback(async () => {
-    if (!token || !hasChanges) return
+  // Save pending updates
+  const savePendingUpdates = useCallback(async () => {
+    if (pendingUpdates.size === 0) return
     
     setSaving(true)
-    const content = JSON.stringify(appsData, null, 2)
-    const success = await saveAppsToGitHub(
-      token,
-      content,
-      sha,
-      `Update apps.json - ${new Date().toLocaleString('ja-JP')}`
-    )
+    const updates = Array.from(pendingUpdates.values())
     
-    if (success) {
-      // Refresh to get new SHA
-      const result = await getAppsFromGitHub(token)
-      if (result) {
-        setSha(result.sha)
+    for (const app of updates) {
+      const { error } = await supabase
+        .from('apps')
+        .update({
+          release_intent: app.release_intent,
+          fix_notes: app.fix_notes,
+          check_launch: app.check_launch,
+          check_main_feature: app.check_main_feature,
+          check_ui: app.check_ui,
+          check_crash_free: app.check_crash_free,
+          test_notes: app.test_notes,
+          updated_at: new Date().toISOString(),
+        })
+        .eq('id', app.id)
+      
+      if (error) {
+        console.error('Error updating app:', error)
       }
-      setHasChanges(false)
     }
     
+    setPendingUpdates(new Map())
     setSaving(false)
-  }, [token, appsData, sha, hasChanges])
+  }, [pendingUpdates])
 
   // Debounced auto-save
   useEffect(() => {
-    if (hasChanges) {
+    if (pendingUpdates.size > 0) {
       if (saveTimeoutRef.current) {
         clearTimeout(saveTimeoutRef.current)
       }
-      saveTimeoutRef.current = setTimeout(saveApps, 2000) // 2秒後に自動保存
+      saveTimeoutRef.current = setTimeout(savePendingUpdates, 1500)
     }
     
     return () => {
@@ -99,28 +80,23 @@ export default function Dashboard() {
         clearTimeout(saveTimeoutRef.current)
       }
     }
-  }, [hasChanges, saveApps])
+  }, [pendingUpdates, savePendingUpdates])
 
   const handleAppUpdate = (updatedApp: App) => {
-    setAppsData((prev) => ({
-      ...prev,
-      lastUpdated: new Date().toISOString(),
-      apps: prev.apps.map((app) =>
-        app.id === updatedApp.id ? updatedApp : app
-      ),
-    }))
-    setHasChanges(true)
-  }
-
-  const handleLogout = () => {
-    localStorage.removeItem('github_token')
-    setToken(null)
-    setAppsData(DEFAULT_APPS_DATA)
-    setSha(null)
+    // Update local state immediately
+    setApps((prev) =>
+      prev.map((app) => (app.id === updatedApp.id ? updatedApp : app))
+    )
+    // Queue for save
+    setPendingUpdates((prev) => {
+      const next = new Map(prev)
+      next.set(updatedApp.id, updatedApp)
+      return next
+    })
   }
 
   // Filter apps
-  const filteredApps = appsData.apps.filter((app) => {
+  const filteredApps = apps.filter((app) => {
     // Search filter
     if (searchQuery) {
       const query = searchQuery.toLowerCase()
@@ -135,25 +111,21 @@ export default function Dashboard() {
     // Status filter
     if (filter === 'all') return true
     if (filter === 'unchecked') {
-      return !Object.values(app.checks).every(Boolean)
+      return !(app.check_launch && app.check_main_feature && app.check_ui && app.check_crash_free)
     }
-    return app.releaseIntent === filter
+    return app.release_intent === filter
   })
 
   // Calculate counts
   const counts = {
-    all: appsData.apps.length,
-    ready: appsData.apps.filter((a) => a.releaseIntent === 'ready').length,
-    'needs-fix': appsData.apps.filter((a) => a.releaseIntent === 'needs-fix').length,
-    hold: appsData.apps.filter((a) => a.releaseIntent === 'hold').length,
-    released: appsData.apps.filter((a) => a.releaseIntent === 'released').length,
-    unchecked: appsData.apps.filter(
-      (a) => !Object.values(a.checks).every(Boolean)
+    all: apps.length,
+    ready: apps.filter((a) => a.release_intent === 'ready').length,
+    'needs-fix': apps.filter((a) => a.release_intent === 'needs-fix').length,
+    hold: apps.filter((a) => a.release_intent === 'hold').length,
+    released: apps.filter((a) => a.release_intent === 'released').length,
+    unchecked: apps.filter(
+      (a) => !(a.check_launch && a.check_main_feature && a.check_ui && a.check_crash_free)
     ).length,
-  }
-
-  if (!token) {
-    return <GitHubSetup onTokenSave={setToken} />
   }
 
   return (
@@ -166,27 +138,21 @@ export default function Dashboard() {
             <div>
               <h1 className="text-2xl font-bold">ManyConnection Dashboard</h1>
               <p className="text-zinc-500">
-                {appsData.apps.length}個のアプリ
+                {apps.length}個のアプリ
                 {saving && <span className="ml-2 text-yellow-500">保存中...</span>}
-                {hasChanges && !saving && <span className="ml-2 text-zinc-400">未保存の変更あり</span>}
+                {pendingUpdates.size > 0 && !saving && (
+                  <span className="ml-2 text-zinc-400">未保存: {pendingUpdates.size}</span>
+                )}
               </p>
             </div>
           </div>
-          <div className="flex items-center gap-4">
-            <button
-              onClick={loadApps}
-              disabled={loading}
-              className="px-4 py-2 bg-zinc-800 hover:bg-zinc-700 rounded-lg text-sm transition-colors disabled:opacity-50"
-            >
-              {loading ? '読込中...' : '🔄 更新'}
-            </button>
-            <button
-              onClick={handleLogout}
-              className="px-4 py-2 bg-zinc-800 hover:bg-zinc-700 rounded-lg text-sm transition-colors"
-            >
-              ログアウト
-            </button>
-          </div>
+          <button
+            onClick={loadApps}
+            disabled={loading}
+            className="px-4 py-2 bg-zinc-800 hover:bg-zinc-700 rounded-lg text-sm transition-colors disabled:opacity-50"
+          >
+            {loading ? '読込中...' : '🔄 更新'}
+          </button>
         </div>
 
         {/* Search */}
