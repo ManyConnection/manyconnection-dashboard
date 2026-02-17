@@ -5,6 +5,7 @@ export interface App {
   name: string
   slug: string
   emoji: string
+  icon_url?: string
   bundle_id?: string
   github_url?: string
   testflight_url?: string

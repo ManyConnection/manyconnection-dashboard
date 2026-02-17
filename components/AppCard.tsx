@@ -1,5 +1,6 @@
 'use client'
 
+import { useState } from 'react'
 import { App, ReleaseIntent } from '@/lib/types'
 
 interface AppCardProps {
@@ -22,6 +23,13 @@ const intentLabels: Record<ReleaseIntent, string> = {
 }
 
 export default function AppCard({ app, onUpdate }: AppCardProps) {
+  const [iconError, setIconError] = useState(false)
+
+  const getIconUrl = () => {
+    if (!app.github_url) return null
+    return `https://raw.githubusercontent.com/${app.github_url.replace('https://github.com/', '')}/main/assets/icon.png`
+  }
+
   const handleCheckChange = (key: 'check_launch' | 'check_main_feature' | 'check_ui' | 'check_crash_free') => {
     onUpdate({
       ...app,
@@ -49,7 +57,16 @@ export default function AppCard({ app, onUpdate }: AppCardProps) {
     <div className="bg-zinc-900 border border-zinc-800 rounded-xl p-5 hover:border-zinc-700 transition-colors">
       <div className="flex items-start justify-between mb-4">
         <div className="flex items-center gap-3">
-          <span className="text-3xl">{app.emoji}</span>
+          {getIconUrl() && !iconError ? (
+            <img 
+              src={getIconUrl()!}
+              alt={app.name} 
+              className="w-12 h-12 rounded-xl object-cover"
+              onError={() => setIconError(true)}
+            />
+          ) : (
+            <span className="text-3xl">{app.emoji}</span>
+          )}
           <div>
             <h3 className="font-semibold text-lg">{app.name}</h3>
             <p className="text-zinc-500 text-sm">{app.slug}</p>
