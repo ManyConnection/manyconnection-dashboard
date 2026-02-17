@@ -1,0 +1,226 @@
+{
+  "version": 1,
+  "lastUpdated": "2026-02-17T09:40:00.000Z",
+  "apps": [
+    {
+      "id": 1,
+      "name": "MovieMemo",
+      "slug": "movie-memo",
+      "emoji": "🎬",
+      "bundleId": "co.manyconnection.moviememo",
+      "githubUrl": "https://github.com/ManyConnection/movie-memo",
+      "releaseIntent": "hold",
+      "checks": { "launch": false, "mainFeature": false, "ui": false, "crashFree": false },
+      "testNotes": ""
+    },
+    {
+      "id": 2,
+      "name": "DoneToday",
+      "slug": "done-today",
+      "emoji": "✅",
+      "bundleId": "co.manyconnection.donetoday",
+      "githubUrl": "https://github.com/ManyConnection/done-today",
+      "releaseIntent": "hold",
+      "checks": { "launch": false, "mainFeature": false, "ui": false, "crashFree": false },
+      "testNotes": ""
+    },
+    {
+      "id": 3,
+      "name": "WeightLog",
+      "slug": "weight-log",
+      "emoji": "⚖️",
+      "bundleId": "co.manyconnection.weightlog",
+      "githubUrl": "https://github.com/ManyConnection/weight-log",
+      "releaseIntent": "hold",
+      "checks": { "launch": false, "mainFeature": false, "ui": false, "crashFree": false },
+      "testNotes": ""
+    },
+    {
+      "id": 4,
+      "name": "BirthdayReminder",
+      "slug": "birthday-reminder",
+      "emoji": "🎂",
+      "bundleId": "co.manyconnection.birthdayreminder",
+      "githubUrl": "https://github.com/ManyConnection/birthday-reminder",
+      "releaseIntent": "hold",
+      "checks": { "launch": false, "mainFeature": false, "ui": false, "crashFree": false },
+      "testNotes": ""
+    },
+    {
+      "id": 5,
+      "name": "GomiReminder",
+      "slug": "gomi-reminder",
+      "emoji": "🗑️",
+      "bundleId": "co.manyconnection.gomireminder",
+      "githubUrl": "https://github.com/ManyConnection/gomi-reminder",
+      "releaseIntent": "hold",
+      "checks": { "launch": false, "mainFeature": false, "ui": false, "crashFree": false },
+      "testNotes": ""
+    },
+    {
+      "id": 6,
+      "name": "ForgottenChecker",
+      "slug": "forgotten-checker",
+      "emoji": "🔍",
+      "bundleId": "co.manyconnection.forgottenchecker",
+      "githubUrl": "https://github.com/ManyConnection/forgotten-checker",
+      "releaseIntent": "hold",
+      "checks": { "launch": false, "mainFeature": false, "ui": false, "crashFree": false },
+      "testNotes": ""
+    },
+    {
+      "id": 7,
+      "name": "KigaeNote",
+      "slug": "kigae-note",
+      "emoji": "👕",
+      "bundleId": "co.manyconnection.kigaenote",
+      "githubUrl": "https://github.com/ManyConnection/outfit-diary",
+      "releaseIntent": "hold",
+      "checks": { "launch": false, "mainFeature": false, "ui": false, "crashFree": false },
+      "testNotes": ""
+    },
+    {
+      "id": 8,
+      "name": "OuchiNote",
+      "slug": "ouchi-note",
+      "emoji": "🏠",
+      "bundleId": "co.manyconnection.ouchinote",
+      "githubUrl": "https://github.com/ManyConnection/OuchiNote",
+      "releaseIntent": "hold",
+      "checks": { "launch": false, "mainFeature": false, "ui": false, "crashFree": false },
+      "testNotes": ""
+    },
+    {
+      "id": 9,
+      "name": "SleepLog",
+      "slug": "sleep-log",
+      "emoji": "😴",
+      "bundleId": "co.manyconnection.sleeplog",
+      "githubUrl": "https://github.com/ManyConnection/sleep-log",
+      "releaseIntent": "hold",
+      "checks": { "launch": false, "mainFeature": false, "ui": false, "crashFree": false },
+      "testNotes": ""
+    },
+    {
+      "id": 10,
+      "name": "ShoppingMemo",
+      "slug": "shopping-memo",
+      "emoji": "🛒",
+      "bundleId": "co.manyconnection.shoppingmemo",
+      "githubUrl": "https://github.com/ManyConnection/shopping-memo",
+      "releaseIntent": "hold",
+      "checks": { "launch": false, "mainFeature": false, "ui": false, "crashFree": false },
+      "testNotes": ""
+    },
+    {
+      "id": 11,
+      "name": "GiftMemo",
+      "slug": "gift-memo",
+      "emoji": "🎁",
+      "bundleId": "co.manyconnection.giftmemo",
+      "githubUrl": "https://github.com/ManyConnection/gift-memo",
+      "releaseIntent": "hold",
+      "checks": { "launch": false, "mainFeature": false, "ui": false, "crashFree": false },
+      "testNotes": ""
+    },
+    {
+      "id": 12,
+      "name": "PomodoroFocus",
+      "slug": "pomodoro-focus",
+      "emoji": "🍅",
+      "bundleId": "co.manyconnection.pomodorofocus",
+      "githubUrl": "https://github.com/ManyConnection/pomodoro-focus",
+      "releaseIntent": "hold",
+      "checks": { "launch": false, "mainFeature": false, "ui": false, "crashFree": false },
+      "testNotes": ""
+    },
+    {
+      "id": 13,
+      "name": "WaterDrinkLog",
+      "slug": "water-drink-log",
+      "emoji": "💧",
+      "bundleId": "co.manyconnection.waterdrinklog",
+      "githubUrl": "https://github.com/ManyConnection/water-drink-log",
+      "releaseIntent": "hold",
+      "checks": { "launch": false, "mainFeature": false, "ui": false, "crashFree": false },
+      "testNotes": ""
+    },
+    {
+      "id": 14,
+      "name": "WeatherMemo",
+      "slug": "weather-memo",
+      "emoji": "🌤️",
+      "bundleId": "co.manyconnection.weathermemo",
+      "githubUrl": "https://github.com/ManyConnection/weather-memo",
+      "releaseIntent": "hold",
+      "checks": { "launch": false, "mainFeature": false, "ui": false, "crashFree": false },
+      "testNotes": ""
+    },
+    {
+      "id": 15,
+      "name": "ZenFocus",
+      "slug": "zen-focus",
+      "emoji": "🧘",
+      "bundleId": "co.manyconnection.zenfocus",
+      "githubUrl": "https://github.com/ManyConnection/meditation-timer-pro",
+      "releaseIntent": "hold",
+      "checks": { "launch": false, "mainFeature": false, "ui": false, "crashFree": false },
+      "testNotes": ""
+    },
+    {
+      "id": 16,
+      "name": "QuoteCollection",
+      "slug": "quote-collection",
+      "emoji": "📖",
+      "bundleId": "co.manyconnection.quotecollection",
+      "githubUrl": "https://github.com/ManyConnection/quote-collection",
+      "releaseIntent": "hold",
+      "checks": { "launch": false, "mainFeature": false, "ui": false, "crashFree": false },
+      "testNotes": ""
+    },
+    {
+      "id": 17,
+      "name": "ContractReminder",
+      "slug": "contract-reminder",
+      "emoji": "📝",
+      "bundleId": "co.manyconnection.contractreminder",
+      "githubUrl": "https://github.com/ManyConnection/contract-reminder",
+      "releaseIntent": "hold",
+      "checks": { "launch": false, "mainFeature": false, "ui": false, "crashFree": false },
+      "testNotes": ""
+    },
+    {
+      "id": 18,
+      "name": "ElectricBillMemo",
+      "slug": "electric-bill-memo",
+      "emoji": "⚡",
+      "bundleId": "co.manyconnection.electricbillmemo",
+      "githubUrl": "https://github.com/ManyConnection/electric-bill-memo",
+      "releaseIntent": "hold",
+      "checks": { "launch": false, "mainFeature": false, "ui": false, "crashFree": false },
+      "testNotes": ""
+    },
+    {
+      "id": 19,
+      "name": "PlantWatering",
+      "slug": "plant-watering",
+      "emoji": "🌱",
+      "bundleId": "co.manyconnection.plantwatering",
+      "githubUrl": "https://github.com/ManyConnection/plant-watering",
+      "releaseIntent": "hold",
+      "checks": { "launch": false, "mainFeature": false, "ui": false, "crashFree": false },
+      "testNotes": ""
+    },
+    {
+      "id": 20,
+      "name": "TimeFit",
+      "slug": "timefit",
+      "emoji": "⏱️",
+      "bundleId": "co.manyconnection.timefit",
+      "githubUrl": "https://github.com/ManyConnection/TimeFit",
+      "releaseIntent": "hold",
+      "checks": { "launch": false, "mainFeature": false, "ui": false, "crashFree": false },
+      "testNotes": ""
+    }
+  ]
+}
