@@ -30,10 +30,14 @@ export default function TestsPage() {
   const [loading, setLoading] = useState(true)
 
   useEffect(() => {
-    fetch('/apps.json')
-      .then(res => res.json())
-      .then(data => {
-        const transformed = data.apps.map((app: any) => ({
+    const loadData = async () => {
+      try {
+        const res = await fetch('/apps.json')
+        if (!res.ok) {
+          throw new Error(`HTTP ${res.status}`)
+        }
+        const data = await res.json()
+        const transformed = (data.apps || []).map((app: any) => ({
           id: app.id,
           name: app.name,
           emoji: app.emoji,
@@ -47,12 +51,13 @@ export default function TestsPage() {
           e2eTests: app.e2eTests
         }))
         setApps(transformed)
-        setLoading(false)
-      })
-      .catch(err => {
+      } catch (err) {
         console.error('Failed to load apps:', err)
+      } finally {
         setLoading(false)
-      })
+      }
+    }
+    loadData()
   }, [])
 
   const appsWithTests = apps.filter(app => app.e2eTests)
