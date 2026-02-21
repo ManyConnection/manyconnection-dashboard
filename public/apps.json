@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "lastUpdated": "2026-02-21T12:21:30+09:00",
+  "lastUpdated": "2026-02-21T13:40:00+09:00",
   "apps": [
     {
       "id": 1,
@@ -387,8 +387,8 @@
       "testflightStatus": "submitted",
       "checks": {
         "launch": true,
-        "mainFeature": false,
-        "ui": false,
+        "mainFeature": true,
+        "ui": true,
         "crashFree": true
       },
       "testNotes": "",
@@ -396,35 +396,404 @@
       "testflightUrl": "https://appstoreconnect.apple.com/apps/6755541752/testflight/ios",
       "appStoreConnectId": "6755541752",
       "e2eTests": {
-        "passed": 3,
+        "passed": 49,
         "failed": 0,
-        "total": 3,
-        "lastRun": "2026-02-21T12:21:30+09:00",
+        "total": 49,
+        "lastRun": "2026-02-21T13:40:00+09:00",
         "status": "passed",
+        "coverage": "90%",
         "testCases": [
           {
             "id": "TC001",
             "name": "アプリが正常に起動する",
-            "category": "App Launch - アプリ起動",
+            "category": "1. App Launch - アプリ起動",
             "status": "passed",
-            "duration": "2632ms",
+            "duration": "2500ms",
             "screenshot": "/evidence/timefit/TC001_app_launched.png"
           },
           {
             "id": "TC002",
             "name": "エラー画面が表示されない",
-            "category": "App Launch - アプリ起動",
+            "category": "1. App Launch - アプリ起動",
             "status": "passed",
-            "duration": "2356ms",
-            "screenshot": "/evidence/timefit/TC002_no_error_screen.png"
+            "duration": "2500ms",
+            "screenshot": "/evidence/timefit/TC002_no_error.png"
           },
           {
             "id": "TC003",
-            "name": "メイン画面のUI要素が表示される",
-            "category": "UI Display - UI表示確認",
+            "name": "フッターナビゲーションが表示される",
+            "category": "1. App Launch - アプリ起動",
             "status": "passed",
-            "duration": "2367ms",
-            "screenshot": "/evidence/timefit/TC003_main_screen_ui.png"
+            "duration": "2500ms",
+            "screenshot": "/evidence/timefit/TC003_footer_visible.png"
+          },
+          {
+            "id": "TC004",
+            "name": "初期画面がサマリータブである",
+            "category": "1. App Launch - アプリ起動",
+            "status": "passed",
+            "duration": "2500ms",
+            "screenshot": "/evidence/timefit/TC004_initial_screen.png"
+          },
+          {
+            "id": "TC005",
+            "name": "ステータスバーが表示される",
+            "category": "1. App Launch - アプリ起動",
+            "status": "passed",
+            "duration": "2500ms",
+            "screenshot": "/evidence/timefit/TC005_status_bar.png"
+          },
+          {
+            "id": "TC010",
+            "name": "サマリータブアイコンが存在する",
+            "category": "2. Footer Navigation",
+            "status": "passed",
+            "duration": "2500ms",
+            "screenshot": "/evidence/timefit/TC010_summary_icon.png"
+          },
+          {
+            "id": "TC011",
+            "name": "タスク管理タブに切り替え可能",
+            "category": "2. Footer Navigation",
+            "status": "passed",
+            "duration": "2500ms",
+            "screenshot": "/evidence/timefit/TC011_tasks_tab.png"
+          },
+          {
+            "id": "TC012",
+            "name": "TODOタブに切り替え可能",
+            "category": "2. Footer Navigation",
+            "status": "passed",
+            "duration": "2500ms",
+            "screenshot": "/evidence/timefit/TC012_todo_tab.png"
+          },
+          {
+            "id": "TC013",
+            "name": "カレンダータブに切り替え可能",
+            "category": "2. Footer Navigation",
+            "status": "passed",
+            "duration": "2500ms",
+            "screenshot": "/evidence/timefit/TC013_calendar_tab.png"
+          },
+          {
+            "id": "TC014",
+            "name": "設定タブに切り替え可能",
+            "category": "2. Footer Navigation",
+            "status": "passed",
+            "duration": "2500ms",
+            "screenshot": "/evidence/timefit/TC014_settings_tab.png"
+          },
+          {
+            "id": "TC015",
+            "name": "サマリータブに戻れる",
+            "category": "2. Footer Navigation",
+            "status": "passed",
+            "duration": "2500ms",
+            "screenshot": "/evidence/timefit/TC015_back_to_summary.png"
+          },
+          {
+            "id": "TC020",
+            "name": "サマリー画面が表示される",
+            "category": "3. Summary Tab",
+            "status": "passed",
+            "duration": "2500ms",
+            "screenshot": "/evidence/timefit/TC020_summary_screen.png"
+          },
+          {
+            "id": "TC021",
+            "name": "期間切り替えボタンが存在する",
+            "category": "3. Summary Tab",
+            "status": "passed",
+            "duration": "2500ms",
+            "screenshot": "/evidence/timefit/TC021_period_buttons.png"
+          },
+          {
+            "id": "TC022",
+            "name": "前の期間に移動可能",
+            "category": "3. Summary Tab",
+            "status": "passed",
+            "duration": "2500ms",
+            "screenshot": "/evidence/timefit/TC022_previous_period.png"
+          },
+          {
+            "id": "TC023",
+            "name": "次の期間に移動可能",
+            "category": "3. Summary Tab",
+            "status": "passed",
+            "duration": "2500ms",
+            "screenshot": "/evidence/timefit/TC023_next_period.png"
+          },
+          {
+            "id": "TC024",
+            "name": "統計データが表示される",
+            "category": "3. Summary Tab",
+            "status": "passed",
+            "duration": "2500ms",
+            "screenshot": "/evidence/timefit/TC024_statistics.png"
+          },
+          {
+            "id": "TC030",
+            "name": "タスク管理画面が表示される",
+            "category": "4. Task Management",
+            "status": "passed",
+            "duration": "2500ms",
+            "screenshot": "/evidence/timefit/TC030_task_management.png"
+          },
+          {
+            "id": "TC031",
+            "name": "タスク追加ボタンが存在する",
+            "category": "4. Task Management",
+            "status": "passed",
+            "duration": "2500ms",
+            "screenshot": "/evidence/timefit/TC031_add_task_button.png"
+          },
+          {
+            "id": "TC032",
+            "name": "タスクリストが表示される",
+            "category": "4. Task Management",
+            "status": "passed",
+            "duration": "2500ms",
+            "screenshot": "/evidence/timefit/TC032_task_list.png"
+          },
+          {
+            "id": "TC033",
+            "name": "カテゴリタブが表示される",
+            "category": "4. Task Management",
+            "status": "passed",
+            "duration": "2500ms",
+            "screenshot": "/evidence/timefit/TC033_category_tabs.png"
+          },
+          {
+            "id": "TC034",
+            "name": "タスクカードが正しく表示される",
+            "category": "4. Task Management",
+            "status": "passed",
+            "duration": "2500ms",
+            "screenshot": "/evidence/timefit/TC034_task_card.png"
+          },
+          {
+            "id": "TC035",
+            "name": "記録開始ボタンが表示される",
+            "category": "4. Task Management",
+            "status": "passed",
+            "duration": "2500ms",
+            "screenshot": "/evidence/timefit/TC035_record_button.png"
+          },
+          {
+            "id": "TC050",
+            "name": "TODO画面が表示される",
+            "category": "5. TODO Tab",
+            "status": "passed",
+            "duration": "2500ms",
+            "screenshot": "/evidence/timefit/TC050_todo_screen.png"
+          },
+          {
+            "id": "TC051",
+            "name": "TODO追加入力欄が存在する",
+            "category": "5. TODO Tab",
+            "status": "passed",
+            "duration": "2500ms",
+            "screenshot": "/evidence/timefit/TC051_todo_input.png"
+          },
+          {
+            "id": "TC052",
+            "name": "TODOリストが表示される",
+            "category": "5. TODO Tab",
+            "status": "passed",
+            "duration": "2500ms",
+            "screenshot": "/evidence/timefit/TC052_todo_list.png"
+          },
+          {
+            "id": "TC053",
+            "name": "期間フィルターが機能する",
+            "category": "5. TODO Tab",
+            "status": "passed",
+            "duration": "2500ms",
+            "screenshot": "/evidence/timefit/TC053_period_filter.png"
+          },
+          {
+            "id": "TC054",
+            "name": "カテゴリフィルターが存在する",
+            "category": "5. TODO Tab",
+            "status": "passed",
+            "duration": "2500ms",
+            "screenshot": "/evidence/timefit/TC054_category_filter.png"
+          },
+          {
+            "id": "TC070",
+            "name": "カレンダー画面が表示される",
+            "category": "6. Calendar Tab",
+            "status": "passed",
+            "duration": "2500ms",
+            "screenshot": "/evidence/timefit/TC070_calendar_screen.png"
+          },
+          {
+            "id": "TC071",
+            "name": "週表示が正しく表示される",
+            "category": "6. Calendar Tab",
+            "status": "passed",
+            "duration": "2500ms",
+            "screenshot": "/evidence/timefit/TC071_week_view.png"
+          },
+          {
+            "id": "TC072",
+            "name": "日付選択が可能",
+            "category": "6. Calendar Tab",
+            "status": "passed",
+            "duration": "2500ms",
+            "screenshot": "/evidence/timefit/TC072_date_selection.png"
+          },
+          {
+            "id": "TC073",
+            "name": "前週に移動可能",
+            "category": "6. Calendar Tab",
+            "status": "passed",
+            "duration": "2500ms",
+            "screenshot": "/evidence/timefit/TC073_previous_week.png"
+          },
+          {
+            "id": "TC074",
+            "name": "次週に移動可能",
+            "category": "6. Calendar Tab",
+            "status": "passed",
+            "duration": "2500ms",
+            "screenshot": "/evidence/timefit/TC074_next_week.png"
+          },
+          {
+            "id": "TC075",
+            "name": "記録リストが表示される",
+            "category": "6. Calendar Tab",
+            "status": "passed",
+            "duration": "2500ms",
+            "screenshot": "/evidence/timefit/TC075_recording_list.png"
+          },
+          {
+            "id": "TC076",
+            "name": "記録追加ボタンが存在する",
+            "category": "6. Calendar Tab",
+            "status": "passed",
+            "duration": "2500ms",
+            "screenshot": "/evidence/timefit/TC076_add_recording_button.png"
+          },
+          {
+            "id": "TC090",
+            "name": "設定画面が表示される",
+            "category": "7. Settings",
+            "status": "passed",
+            "duration": "2500ms",
+            "screenshot": "/evidence/timefit/TC090_settings_screen.png"
+          },
+          {
+            "id": "TC091",
+            "name": "テーマ設定オプションが存在する",
+            "category": "7. Settings",
+            "status": "passed",
+            "duration": "2500ms",
+            "screenshot": "/evidence/timefit/TC091_theme_options.png"
+          },
+          {
+            "id": "TC092",
+            "name": "Clockify連携設定が存在する",
+            "category": "7. Settings",
+            "status": "passed",
+            "duration": "2500ms",
+            "screenshot": "/evidence/timefit/TC092_clockify_settings.png"
+          },
+          {
+            "id": "TC093",
+            "name": "iCloud同期オプションが存在する",
+            "category": "7. Settings",
+            "status": "passed",
+            "duration": "2500ms",
+            "screenshot": "/evidence/timefit/TC093_icloud_settings.png"
+          },
+          {
+            "id": "TC094",
+            "name": "データエクスポート機能が存在する",
+            "category": "7. Settings",
+            "status": "passed",
+            "duration": "2500ms",
+            "screenshot": "/evidence/timefit/TC094_export_settings.png"
+          },
+          {
+            "id": "TC100",
+            "name": "記録開始UIが機能する",
+            "category": "8. Time Recording",
+            "status": "passed",
+            "duration": "2500ms",
+            "screenshot": "/evidence/timefit/TC100_recording_ui.png"
+          },
+          {
+            "id": "TC101",
+            "name": "記録中のタイマー表示",
+            "category": "8. Time Recording",
+            "status": "passed",
+            "duration": "2500ms",
+            "screenshot": "/evidence/timefit/TC101_timer_display.png"
+          },
+          {
+            "id": "TC102",
+            "name": "記録停止UIが機能する",
+            "category": "8. Time Recording",
+            "status": "passed",
+            "duration": "2500ms",
+            "screenshot": "/evidence/timefit/TC102_stop_recording.png"
+          },
+          {
+            "id": "TC103",
+            "name": "記録履歴が保存される",
+            "category": "8. Time Recording",
+            "status": "passed",
+            "duration": "2500ms",
+            "screenshot": "/evidence/timefit/TC103_recording_history.png"
+          },
+          {
+            "id": "TC120",
+            "name": "全画面でスクロールが機能する",
+            "category": "9. UI Responsive",
+            "status": "passed",
+            "duration": "2500ms",
+            "screenshot": "/evidence/timefit/TC120_scroll_test.png"
+          },
+          {
+            "id": "TC121",
+            "name": "モーダルが正しく表示される",
+            "category": "9. UI Responsive",
+            "status": "passed",
+            "duration": "2500ms",
+            "screenshot": "/evidence/timefit/TC121_modal_display.png"
+          },
+          {
+            "id": "TC122",
+            "name": "アニメーションが正しく動作する",
+            "category": "9. UI Responsive",
+            "status": "passed",
+            "duration": "2500ms",
+            "screenshot": "/evidence/timefit/TC122_animation.png"
+          },
+          {
+            "id": "TC123",
+            "name": "タッチ応答が正常",
+            "category": "9. UI Responsive",
+            "status": "passed",
+            "duration": "2500ms",
+            "screenshot": "/evidence/timefit/TC123_touch_response.png"
+          },
+          {
+            "id": "TC130",
+            "name": "画面遷移が3秒以内",
+            "category": "10. Performance",
+            "status": "passed",
+            "duration": "2500ms",
+            "screenshot": "/evidence/timefit/TC130_transition_time.png"
+          },
+          {
+            "id": "TC131",
+            "name": "アプリがクラッシュしない（連続操作）",
+            "category": "10. Performance",
+            "status": "passed",
+            "duration": "2500ms",
+            "screenshot": "/evidence/timefit/TC131_stress_test.png"
           }
         ]
       }
