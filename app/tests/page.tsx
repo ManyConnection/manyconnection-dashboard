@@ -2,18 +2,28 @@
 
 import { useState, useEffect } from 'react'
 
+interface TestCase {
+  id: string
+  name: string
+  category: string
+  status: 'passed' | 'failed'
+  duration: string
+  screenshot?: string
+}
+
 interface E2ETest {
   passed: number
   failed: number
   total: number
   lastRun: string
   status: 'passed' | 'failed' | 'pending'
-  githubResultsUrl?: string
+  testCases?: TestCase[]
 }
 
 interface AppTest {
   id: number
   name: string
+  slug: string
   emoji: string
   githubUrl?: string
   checks: {
@@ -28,26 +38,22 @@ interface AppTest {
 export default function TestsPage() {
   const [apps, setApps] = useState<AppTest[]>([])
   const [loading, setLoading] = useState(true)
+  const [selectedApp, setSelectedApp] = useState<AppTest | null>(null)
+  const [selectedScreenshot, setSelectedScreenshot] = useState<string | null>(null)
 
   useEffect(() => {
     const loadData = async () => {
       try {
         const res = await fetch('/apps.json')
-        if (!res.ok) {
-          throw new Error(`HTTP ${res.status}`)
-        }
+        if (!res.ok) throw new Error(`HTTP ${res.status}`)
         const data = await res.json()
         const transformed = (data.apps || []).map((app: any) => ({
           id: app.id,
           name: app.name,
+          slug: app.slug,
           emoji: app.emoji,
           githubUrl: app.githubUrl,
-          checks: app.checks || {
-            launch: false,
-            mainFeature: false,
-            ui: false,
-            crashFree: false
-          },
+          checks: app.checks || { launch: false, mainFeature: false, ui: false, crashFree: false },
           e2eTests: app.e2eTests
         }))
         setApps(transformed)
@@ -69,14 +75,14 @@ export default function TestsPage() {
 
   if (loading) {
     return (
-      <div className="min-h-screen flex items-center justify-center">
+      <div className="min-h-screen flex items-center justify-center bg-zinc-950">
         <p className="text-zinc-500">読み込み中...</p>
       </div>
     )
   }
 
   return (
-    <div className="min-h-screen p-6">
+    <div className="min-h-screen p-6 bg-zinc-950 text-white">
       <div className="max-w-6xl mx-auto">
         {/* Header */}
         <div className="flex items-center gap-4 mb-8">
@@ -104,7 +110,7 @@ export default function TestsPage() {
             <p className="text-3xl font-bold text-red-400">{totalFailed}</p>
           </div>
           <div className="bg-zinc-900 border border-zinc-800 rounded-xl p-4">
-            <p className="text-zinc-500 text-sm">テスト済みアプリ</p>
+            <p className="text-zinc-500 text-sm">テスト済み</p>
             <p className="text-3xl font-bold">{appsWithTests.length}/{apps.length}</p>
           </div>
         </div>
@@ -113,71 +119,82 @@ export default function TestsPage() {
         {appsWithTests.length > 0 && (
           <div className="mb-8">
             <h2 className="text-xl font-semibold mb-4">✅ テスト済みアプリ</h2>
-            <div className="space-y-3">
+            <div className="space-y-4">
               {appsWithTests.map(app => (
                 <div 
                   key={app.id}
-                  className="bg-zinc-900 border border-zinc-800 rounded-xl p-4 flex items-center justify-between"
+                  className="bg-zinc-900 border border-zinc-800 rounded-xl overflow-hidden"
                 >
-                  <div className="flex items-center gap-3">
-                    <span className="text-2xl">{app.emoji}</span>
-                    <div>
-                      <h3 className="font-semibold">{app.name}</h3>
-                      <p className="text-zinc-500 text-sm">
-                        最終実行: {app.e2eTests?.lastRun ? new Date(app.e2eTests.lastRun).toLocaleString('ja-JP') : '-'}
-                      </p>
+                  {/* App Header */}
+                  <div 
+                    className="p-4 flex items-center justify-between cursor-pointer hover:bg-zinc-800/50"
+                    onClick={() => setSelectedApp(selectedApp?.id === app.id ? null : app)}
+                  >
+                    <div className="flex items-center gap-3">
+                      <span className="text-2xl">{app.emoji}</span>
+                      <div>
+                        <h3 className="font-semibold">{app.name}</h3>
+                        <p className="text-zinc-500 text-sm">
+                          最終実行: {app.e2eTests?.lastRun ? new Date(app.e2eTests.lastRun).toLocaleString('ja-JP') : '-'}
+                        </p>
+                      </div>
                     </div>
-                  </div>
-                  
-                  <div className="flex items-center gap-4">
-                    {/* Test Results */}
-                    <div className="flex items-center gap-2">
+                    
+                    <div className="flex items-center gap-4">
                       <span className={`px-3 py-1 rounded-full text-sm ${
                         app.e2eTests?.status === 'passed' 
                           ? 'bg-green-500/20 text-green-400'
                           : 'bg-red-500/20 text-red-400'
                       }`}>
-                        {app.e2eTests?.passed || 0} passed
+                        {app.e2eTests?.passed}/{app.e2eTests?.total} passed
                       </span>
-                      {(app.e2eTests?.failed || 0) > 0 && (
-                        <span className="px-3 py-1 rounded-full text-sm bg-red-500/20 text-red-400">
-                          {app.e2eTests?.failed} failed
-                        </span>
-                      )}
-                    </div>
-
-                    {/* Checks */}
-                    <div className="flex gap-1">
-                      <span title="起動確認" className={app.checks.launch ? 'text-green-400' : 'text-zinc-600'}>🚀</span>
-                      <span title="主要機能" className={app.checks.mainFeature ? 'text-green-400' : 'text-zinc-600'}>⚡</span>
-                      <span title="UI確認" className={app.checks.ui ? 'text-green-400' : 'text-zinc-600'}>🎨</span>
-                      <span title="クラッシュなし" className={app.checks.crashFree ? 'text-green-400' : 'text-zinc-600'}>🛡️</span>
-                    </div>
-
-                    {/* Links */}
-                    <div className="flex gap-2">
-                      {app.e2eTests?.githubResultsUrl && (
-                        <a
-                          href={app.e2eTests.githubResultsUrl}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="px-3 py-1 bg-zinc-800 hover:bg-zinc-700 rounded-lg text-xs transition-colors"
-                        >
-                          📄 結果XML
-                        </a>
-                      )}
-                      {app.githubUrl && (
-                        <a
-                          href={`${app.githubUrl}/tree/main/e2e`}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="px-3 py-1 bg-zinc-800 hover:bg-zinc-700 rounded-lg text-xs transition-colors"
-                        >
-                          🧪 テストコード
-                        </a>
-                      )}
+                      <span className="text-zinc-500">
+                        {selectedApp?.id === app.id ? '▼' : '▶'}
+                      </span>
                     </div>
                   </div>
+
+                  {/* Test Cases Detail */}
+                  {selectedApp?.id === app.id && app.e2eTests?.testCases && (
+                    <div className="border-t border-zinc-800 p-4">
+                      <h4 className="text-sm font-semibold text-zinc-400 mb-3">テストケース一覧</h4>
+                      <div className="space-y-3">
+                        {app.e2eTests.testCases.map(tc => (
+                          <div 
+                            key={tc.id}
+                            className="bg-zinc-800/50 rounded-lg p-3"
+                          >
+                            <div className="flex items-start justify-between">
+                              <div className="flex-1">
+                                <div className="flex items-center gap-2 mb-1">
+                                  <span className={`w-2 h-2 rounded-full ${
+                                    tc.status === 'passed' ? 'bg-green-400' : 'bg-red-400'
+                                  }`} />
+                                  <span className="text-xs text-zinc-500">{tc.id}</span>
+                                  <span className="text-xs text-zinc-600">|</span>
+                                  <span className="text-xs text-zinc-500">{tc.category}</span>
+                                </div>
+                                <p className="font-medium">{tc.name}</p>
+                                <p className="text-xs text-zinc-500 mt-1">実行時間: {tc.duration}</p>
+                              </div>
+                              {tc.screenshot && (
+                                <button
+                                  onClick={() => setSelectedScreenshot(tc.screenshot!)}
+                                  className="ml-4 flex-shrink-0"
+                                >
+                                  <img 
+                                    src={tc.screenshot} 
+                                    alt={`${tc.id} screenshot`}
+                                    className="w-16 h-28 object-cover rounded border border-zinc-700 hover:border-zinc-500 transition-colors"
+                                  />
+                                </button>
+                              )}
+                            </div>
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+                  )}
                 </div>
               ))}
             </div>
@@ -188,14 +205,14 @@ export default function TestsPage() {
         {appsWithoutTests.length > 0 && (
           <div>
             <h2 className="text-xl font-semibold mb-4 text-zinc-500">⏳ 未テスト ({appsWithoutTests.length})</h2>
-            <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-3">
+            <div className="grid grid-cols-3 md:grid-cols-6 lg:grid-cols-8 gap-3">
               {appsWithoutTests.map(app => (
                 <div 
                   key={app.id}
                   className="bg-zinc-900/50 border border-zinc-800/50 rounded-xl p-3 text-center opacity-60"
                 >
                   <span className="text-2xl">{app.emoji}</span>
-                  <p className="text-sm text-zinc-500 mt-1 truncate">{app.name}</p>
+                  <p className="text-xs text-zinc-500 mt-1 truncate">{app.name}</p>
                 </div>
               ))}
             </div>
@@ -209,6 +226,28 @@ export default function TestsPage() {
           </a>
         </div>
       </div>
+
+      {/* Screenshot Modal */}
+      {selectedScreenshot && (
+        <div 
+          className="fixed inset-0 bg-black/80 flex items-center justify-center z-50 p-8"
+          onClick={() => setSelectedScreenshot(null)}
+        >
+          <div className="relative max-w-md max-h-full">
+            <img 
+              src={selectedScreenshot} 
+              alt="Screenshot"
+              className="max-h-[80vh] rounded-xl shadow-2xl"
+            />
+            <button
+              onClick={() => setSelectedScreenshot(null)}
+              className="absolute -top-3 -right-3 w-8 h-8 bg-zinc-800 rounded-full flex items-center justify-center hover:bg-zinc-700"
+            >
+              ✕
+            </button>
+          </div>
+        </div>
+      )}
     </div>
   )
 }

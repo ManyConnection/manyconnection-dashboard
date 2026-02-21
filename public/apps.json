@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "lastUpdated": "2026-02-21T11:48:46+09:00",
+  "lastUpdated": "2026-02-21T12:21:30+09:00",
   "apps": [
     {
       "id": 1,
@@ -396,12 +396,37 @@
       "testflightUrl": "https://appstoreconnect.apple.com/apps/6755541752/testflight/ios",
       "appStoreConnectId": "6755541752",
       "e2eTests": {
-        "passed": 2,
+        "passed": 3,
         "failed": 0,
-        "total": 2,
-        "lastRun": "2026-02-21T11:48:46+09:00",
+        "total": 3,
+        "lastRun": "2026-02-21T12:21:30+09:00",
         "status": "passed",
-        "githubResultsUrl": "https://github.com/ManyConnection/TimeFit/blob/main/e2e/test-results/junit.xml"
+        "testCases": [
+          {
+            "id": "TC001",
+            "name": "アプリが正常に起動する",
+            "category": "App Launch - アプリ起動",
+            "status": "passed",
+            "duration": "2632ms",
+            "screenshot": "/evidence/timefit/TC001_app_launched.png"
+          },
+          {
+            "id": "TC002",
+            "name": "エラー画面が表示されない",
+            "category": "App Launch - アプリ起動",
+            "status": "passed",
+            "duration": "2356ms",
+            "screenshot": "/evidence/timefit/TC002_no_error_screen.png"
+          },
+          {
+            "id": "TC003",
+            "name": "メイン画面のUI要素が表示される",
+            "category": "UI Display - UI表示確認",
+            "status": "passed",
+            "duration": "2367ms",
+            "screenshot": "/evidence/timefit/TC003_main_screen_ui.png"
+          }
+        ]
       }
     },
     {
