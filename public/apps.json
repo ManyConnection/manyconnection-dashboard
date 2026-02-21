@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "lastUpdated": "2026-02-17T11:10:42.724Z",
+  "lastUpdated": "2026-02-21T11:48:46+09:00",
   "apps": [
     {
       "id": 1,
@@ -18,7 +18,9 @@
         "crashFree": false
       },
       "testNotes": "",
-      "iconUrl": "https://raw.githubusercontent.com/ManyConnection/movie-memo/main/assets/icon.png"
+      "iconUrl": "https://raw.githubusercontent.com/ManyConnection/movie-memo/main/assets/icon.png",
+      "testflightUrl": "https://appstoreconnect.apple.com/apps/6759098000/testflight/ios",
+      "appStoreConnectId": "6759098000"
     },
     {
       "id": 2,
@@ -36,7 +38,9 @@
         "crashFree": false
       },
       "testNotes": "",
-      "iconUrl": "https://raw.githubusercontent.com/ManyConnection/done-today/main/assets/icon.png"
+      "iconUrl": "https://raw.githubusercontent.com/ManyConnection/done-today/main/assets/icon.png",
+      "testflightUrl": "https://appstoreconnect.apple.com/apps/6759097911/testflight/ios",
+      "appStoreConnectId": "6759097911"
     },
     {
       "id": 3,
@@ -54,7 +58,9 @@
         "crashFree": false
       },
       "testNotes": "",
-      "iconUrl": "https://raw.githubusercontent.com/ManyConnection/weight-log/main/assets/icon.png"
+      "iconUrl": "https://raw.githubusercontent.com/ManyConnection/weight-log/main/assets/icon.png",
+      "testflightUrl": "https://appstoreconnect.apple.com/apps/6759083541/testflight/ios",
+      "appStoreConnectId": "6759083541"
     },
     {
       "id": 4,
@@ -72,7 +78,9 @@
         "crashFree": false
       },
       "testNotes": "",
-      "iconUrl": "https://raw.githubusercontent.com/ManyConnection/birthday-reminder/main/assets/icon.png"
+      "iconUrl": "https://raw.githubusercontent.com/ManyConnection/birthday-reminder/main/assets/icon.png",
+      "testflightUrl": "https://appstoreconnect.apple.com/apps/6759074515/testflight/ios",
+      "appStoreConnectId": "6759074515"
     },
     {
       "id": 5,
@@ -90,7 +98,9 @@
         "crashFree": false
       },
       "testNotes": "",
-      "iconUrl": "https://raw.githubusercontent.com/ManyConnection/gomi-reminder/main/assets/icon.png"
+      "iconUrl": "https://raw.githubusercontent.com/ManyConnection/gomi-reminder/main/assets/icon.png",
+      "testflightUrl": "https://appstoreconnect.apple.com/apps/6759073061/testflight/ios",
+      "appStoreConnectId": "6759073061"
     },
     {
       "id": 6,
@@ -108,7 +118,9 @@
         "crashFree": false
       },
       "testNotes": "",
-      "iconUrl": "https://raw.githubusercontent.com/ManyConnection/forgotten-checker/main/assets/icon.png"
+      "iconUrl": "https://raw.githubusercontent.com/ManyConnection/forgotten-checker/main/assets/icon.png",
+      "testflightUrl": "https://appstoreconnect.apple.com/apps/6759131692/testflight/ios",
+      "appStoreConnectId": "6759131692"
     },
     {
       "id": 7,
@@ -126,7 +138,9 @@
         "crashFree": false
       },
       "testNotes": "",
-      "iconUrl": "https://raw.githubusercontent.com/ManyConnection/outfit-diary/main/assets/icon.png"
+      "iconUrl": "https://raw.githubusercontent.com/ManyConnection/outfit-diary/main/assets/icon.png",
+      "testflightUrl": "https://appstoreconnect.apple.com/apps/6759249377/testflight/ios",
+      "appStoreConnectId": "6759249377"
     },
     {
       "id": 8,
@@ -144,7 +158,9 @@
         "crashFree": false
       },
       "testNotes": "",
-      "iconUrl": "https://raw.githubusercontent.com/ManyConnection/OuchiNote/main/assets/icon.png"
+      "iconUrl": "https://raw.githubusercontent.com/ManyConnection/OuchiNote/main/assets/icon.png",
+      "testflightUrl": "https://appstoreconnect.apple.com/apps/6759249432/testflight/ios",
+      "appStoreConnectId": "6759249432"
     },
     {
       "id": 9,
@@ -162,7 +178,9 @@
         "crashFree": false
       },
       "testNotes": "",
-      "iconUrl": "https://raw.githubusercontent.com/ManyConnection/sleep-log/main/assets/icon.png"
+      "iconUrl": "https://raw.githubusercontent.com/ManyConnection/sleep-log/main/assets/icon.png",
+      "testflightUrl": "https://appstoreconnect.apple.com/apps/6759050981/testflight/ios",
+      "appStoreConnectId": "6759050981"
     },
     {
       "id": 10,
@@ -180,7 +198,9 @@
         "crashFree": false
       },
       "testNotes": "",
-      "iconUrl": "https://raw.githubusercontent.com/ManyConnection/shopping-memo/main/assets/icon.png"
+      "iconUrl": "https://raw.githubusercontent.com/ManyConnection/shopping-memo/main/assets/icon.png",
+      "testflightUrl": "https://appstoreconnect.apple.com/apps/6759050959/testflight/ios",
+      "appStoreConnectId": "6759050959"
     },
     {
       "id": 11,
@@ -198,7 +218,9 @@
         "crashFree": false
       },
       "testNotes": "",
-      "iconUrl": "https://raw.githubusercontent.com/ManyConnection/gift-memo/main/assets/icon.png"
+      "iconUrl": "https://raw.githubusercontent.com/ManyConnection/gift-memo/main/assets/icon.png",
+      "testflightUrl": "https://appstoreconnect.apple.com/apps/6759047148/testflight/ios",
+      "appStoreConnectId": "6759047148"
     },
     {
       "id": 12,
@@ -216,7 +238,9 @@
         "crashFree": false
       },
       "testNotes": "",
-      "iconUrl": "https://raw.githubusercontent.com/ManyConnection/pomodoro-focus/main/assets/icon.png"
+      "iconUrl": "https://raw.githubusercontent.com/ManyConnection/pomodoro-focus/main/assets/icon.png",
+      "testflightUrl": "https://appstoreconnect.apple.com/apps/6759050834/testflight/ios",
+      "appStoreConnectId": "6759050834"
     },
     {
       "id": 13,
@@ -234,7 +258,9 @@
         "crashFree": false
       },
       "testNotes": "",
-      "iconUrl": "https://raw.githubusercontent.com/ManyConnection/water-drink-log/main/assets/icon.png"
+      "iconUrl": "https://raw.githubusercontent.com/ManyConnection/water-drink-log/main/assets/icon.png",
+      "testflightUrl": "https://appstoreconnect.apple.com/apps/6759046729/testflight/ios",
+      "appStoreConnectId": "6759046729"
     },
     {
       "id": 14,
@@ -270,7 +296,9 @@
         "crashFree": false
       },
       "testNotes": "",
-      "iconUrl": "https://raw.githubusercontent.com/ManyConnection/meditation-timer-pro/main/assets/icon.png"
+      "iconUrl": "https://raw.githubusercontent.com/ManyConnection/meditation-timer-pro/main/assets/icon.png",
+      "testflightUrl": "https://appstoreconnect.apple.com/apps/6758908022/testflight/ios",
+      "appStoreConnectId": "6758908022"
     },
     {
       "id": 16,
@@ -306,7 +334,9 @@
         "crashFree": false
       },
       "testNotes": "",
-      "iconUrl": "https://raw.githubusercontent.com/ManyConnection/contract-reminder/main/assets/icon.png"
+      "iconUrl": "https://raw.githubusercontent.com/ManyConnection/contract-reminder/main/assets/icon.png",
+      "testflightUrl": "https://appstoreconnect.apple.com/apps/6759131688/testflight/ios",
+      "appStoreConnectId": "6759131688"
     },
     {
       "id": 18,
@@ -324,7 +354,9 @@
         "crashFree": false
       },
       "testNotes": "",
-      "iconUrl": "https://raw.githubusercontent.com/ManyConnection/electric-bill-memo/main/assets/icon.png"
+      "iconUrl": "https://raw.githubusercontent.com/ManyConnection/electric-bill-memo/main/assets/icon.png",
+      "testflightUrl": "https://appstoreconnect.apple.com/apps/6759131738/testflight/ios",
+      "appStoreConnectId": "6759131738"
     },
     {
       "id": 19,
@@ -354,13 +386,23 @@
       "releaseIntent": "hold",
       "testflightStatus": "submitted",
       "checks": {
-        "launch": false,
+        "launch": true,
         "mainFeature": false,
         "ui": false,
-        "crashFree": false
+        "crashFree": true
       },
       "testNotes": "",
-      "iconUrl": "https://raw.githubusercontent.com/ManyConnection/TimeFit/main/assets/icon.png"
+      "iconUrl": "https://raw.githubusercontent.com/ManyConnection/TimeFit/main/assets/icon.png",
+      "testflightUrl": "https://appstoreconnect.apple.com/apps/6755541752/testflight/ios",
+      "appStoreConnectId": "6755541752",
+      "e2eTests": {
+        "passed": 2,
+        "failed": 0,
+        "total": 2,
+        "lastRun": "2026-02-21T11:48:46+09:00",
+        "status": "passed",
+        "githubResultsUrl": "https://github.com/ManyConnection/TimeFit/blob/main/e2e/test-results/junit.xml"
+      }
     },
     {
       "id": 21,
@@ -378,7 +420,9 @@
         "crashFree": false
       },
       "testNotes": "",
-      "iconUrl": "https://raw.githubusercontent.com/ManyConnection/stretch-timer/main/assets/icon.png"
+      "iconUrl": "https://raw.githubusercontent.com/ManyConnection/stretch-timer/main/assets/icon.png",
+      "testflightUrl": "https://appstoreconnect.apple.com/apps/6759097948/testflight/ios",
+      "appStoreConnectId": "6759097948"
     },
     {
       "id": 22,
@@ -396,7 +440,9 @@
         "crashFree": false
       },
       "testNotes": "",
-      "iconUrl": "https://raw.githubusercontent.com/ManyConnection/step-memo/main/assets/icon.png"
+      "iconUrl": "https://raw.githubusercontent.com/ManyConnection/step-memo/main/assets/icon.png",
+      "testflightUrl": "https://appstoreconnect.apple.com/apps/6759097963/testflight/ios",
+      "appStoreConnectId": "6759097963"
     },
     {
       "id": 23,
@@ -414,7 +460,9 @@
         "crashFree": false
       },
       "testNotes": "",
-      "iconUrl": "https://raw.githubusercontent.com/ManyConnection/mood-log/main/assets/icon.png"
+      "iconUrl": "https://raw.githubusercontent.com/ManyConnection/mood-log/main/assets/icon.png",
+      "testflightUrl": "https://appstoreconnect.apple.com/apps/6759088370/testflight/ios",
+      "appStoreConnectId": "6759088370"
     },
     {
       "id": 24,
@@ -432,7 +480,9 @@
         "crashFree": false
       },
       "testNotes": "",
-      "iconUrl": "https://raw.githubusercontent.com/ManyConnection/gratitude-journal/main/assets/icon.png"
+      "iconUrl": "https://raw.githubusercontent.com/ManyConnection/gratitude-journal/main/assets/icon.png",
+      "testflightUrl": "https://appstoreconnect.apple.com/apps/6759131857/testflight/ios",
+      "appStoreConnectId": "6759131857"
     },
     {
       "id": 25,
@@ -450,7 +500,9 @@
         "crashFree": false
       },
       "testNotes": "",
-      "iconUrl": "https://raw.githubusercontent.com/ManyConnection/daily-quote/main/assets/icon.png"
+      "iconUrl": "https://raw.githubusercontent.com/ManyConnection/daily-quote/main/assets/icon.png",
+      "testflightUrl": "https://appstoreconnect.apple.com/apps/6759089849/testflight/ios",
+      "appStoreConnectId": "6759089849"
     },
     {
       "id": 26,
@@ -468,7 +520,9 @@
         "crashFree": false
       },
       "testNotes": "",
-      "iconUrl": "https://raw.githubusercontent.com/ManyConnection/countdown-app/main/assets/icon.png"
+      "iconUrl": "https://raw.githubusercontent.com/ManyConnection/countdown-app/main/assets/icon.png",
+      "testflightUrl": "https://appstoreconnect.apple.com/apps/6759089932/testflight/ios",
+      "appStoreConnectId": "6759089932"
     },
     {
       "id": 27,
@@ -486,7 +540,9 @@
         "crashFree": false
       },
       "testNotes": "",
-      "iconUrl": "https://raw.githubusercontent.com/ManyConnection/quick-expense/main/assets/icon.png"
+      "iconUrl": "https://raw.githubusercontent.com/ManyConnection/quick-expense/main/assets/icon.png",
+      "testflightUrl": "https://appstoreconnect.apple.com/apps/6759074401/testflight/ios",
+      "appStoreConnectId": "6759074401"
     },
     {
       "id": 28,
@@ -504,7 +560,9 @@
         "crashFree": false
       },
       "testNotes": "",
-      "iconUrl": "https://raw.githubusercontent.com/ManyConnection/recipe-memo/main/assets/icon.png"
+      "iconUrl": "https://raw.githubusercontent.com/ManyConnection/recipe-memo/main/assets/icon.png",
+      "testflightUrl": "https://appstoreconnect.apple.com/apps/6759074577/testflight/ios",
+      "appStoreConnectId": "6759074577"
     },
     {
       "id": 29,
@@ -522,7 +580,9 @@
         "crashFree": false
       },
       "testNotes": "",
-      "iconUrl": "https://raw.githubusercontent.com/ManyConnection/parking-memo/main/assets/icon.png"
+      "iconUrl": "https://raw.githubusercontent.com/ManyConnection/parking-memo/main/assets/icon.png",
+      "testflightUrl": "https://appstoreconnect.apple.com/apps/6759072905/testflight/ios",
+      "appStoreConnectId": "6759072905"
     },
     {
       "id": 30,
@@ -540,7 +600,9 @@
         "crashFree": false
       },
       "testNotes": "",
-      "iconUrl": "https://raw.githubusercontent.com/ManyConnection/outing-checklist/main/assets/icon.png"
+      "iconUrl": "https://raw.githubusercontent.com/ManyConnection/outing-checklist/main/assets/icon.png",
+      "testflightUrl": "https://appstoreconnect.apple.com/apps/6759047292/testflight/ios",
+      "appStoreConnectId": "6759047292"
     },
     {
       "id": 31,
@@ -558,7 +620,9 @@
         "crashFree": false
       },
       "testNotes": "",
-      "iconUrl": "https://raw.githubusercontent.com/ManyConnection/laundry-timer/main/assets/icon.png"
+      "iconUrl": "https://raw.githubusercontent.com/ManyConnection/laundry-timer/main/assets/icon.png",
+      "testflightUrl": "https://appstoreconnect.apple.com/apps/6759072875/testflight/ios",
+      "appStoreConnectId": "6759072875"
     },
     {
       "id": 32,
@@ -576,7 +640,9 @@
         "crashFree": false
       },
       "testNotes": "",
-      "iconUrl": "https://raw.githubusercontent.com/ManyConnection/workout-log/main/assets/icon.png"
+      "iconUrl": "https://raw.githubusercontent.com/ManyConnection/workout-log/main/assets/icon.png",
+      "testflightUrl": "https://appstoreconnect.apple.com/apps/6759092520/testflight/ios",
+      "appStoreConnectId": "6759092520"
     },
     {
       "id": 33,
@@ -612,7 +678,9 @@
         "crashFree": false
       },
       "testNotes": "",
-      "iconUrl": "https://raw.githubusercontent.com/ManyConnection/borrowed-items/main/assets/icon.png"
+      "iconUrl": "https://raw.githubusercontent.com/ManyConnection/borrowed-items/main/assets/icon.png",
+      "testflightUrl": "https://appstoreconnect.apple.com/apps/6759131833/testflight/ios",
+      "appStoreConnectId": "6759131833"
     },
     {
       "id": 35,
@@ -630,7 +698,9 @@
         "crashFree": false
       },
       "testNotes": "",
-      "iconUrl": "https://raw.githubusercontent.com/ManyConnection/ai-diary-assistant/main/assets/icon.png"
+      "iconUrl": "https://raw.githubusercontent.com/ManyConnection/ai-diary-assistant/main/assets/icon.png",
+      "testflightUrl": "https://appstoreconnect.apple.com/apps/6758827387/testflight/ios",
+      "appStoreConnectId": "6758827387"
     },
     {
       "id": 36,
@@ -648,7 +718,9 @@
         "crashFree": false
       },
       "testNotes": "",
-      "iconUrl": "https://raw.githubusercontent.com/ManyConnection/before-after-record/main/assets/icon.png"
+      "iconUrl": "https://raw.githubusercontent.com/ManyConnection/before-after-record/main/assets/icon.png",
+      "testflightUrl": "https://appstoreconnect.apple.com/apps/6758827461/testflight/ios",
+      "appStoreConnectId": "6758827461"
     },
     {
       "id": 37,
@@ -666,7 +738,9 @@
         "crashFree": false
       },
       "testNotes": "",
-      "iconUrl": "https://raw.githubusercontent.com/ManyConnection/code-tenki/main/assets/icon.png"
+      "iconUrl": "https://raw.githubusercontent.com/ManyConnection/code-tenki/main/assets/icon.png",
+      "testflightUrl": "https://appstoreconnect.apple.com/apps/6758827234/testflight/ios",
+      "appStoreConnectId": "6758827234"
     },
     {
       "id": 38,
@@ -684,7 +758,9 @@
         "crashFree": false
       },
       "testNotes": "",
-      "iconUrl": "https://raw.githubusercontent.com/ManyConnection/stock-kanri-kun/main/assets/icon.png"
+      "iconUrl": "https://raw.githubusercontent.com/ManyConnection/stock-kanri-kun/main/assets/icon.png",
+      "testflightUrl": "https://appstoreconnect.apple.com/apps/6758827371/testflight/ios",
+      "appStoreConnectId": "6758827371"
     },
     {
       "id": 39,
@@ -702,7 +778,9 @@
         "crashFree": false
       },
       "testNotes": "",
-      "iconUrl": "https://raw.githubusercontent.com/ManyConnection/warikan-patto/main/assets/icon.png"
+      "iconUrl": "https://raw.githubusercontent.com/ManyConnection/warikan-patto/main/assets/icon.png",
+      "testflightUrl": "https://appstoreconnect.apple.com/apps/6758827169/testflight/ios",
+      "appStoreConnectId": "6758827169"
     },
     {
       "id": 40,
@@ -720,7 +798,9 @@
         "crashFree": false
       },
       "testNotes": "",
-      "iconUrl": "https://raw.githubusercontent.com/ManyConnection/stack-timer/main/assets/icon.png"
+      "iconUrl": "https://raw.githubusercontent.com/ManyConnection/stack-timer/main/assets/icon.png",
+      "testflightUrl": "https://appstoreconnect.apple.com/apps/6758827082/testflight/ios",
+      "appStoreConnectId": "6758827082"
     },
     {
       "id": 41,
@@ -738,7 +818,9 @@
         "crashFree": false
       },
       "testNotes": "",
-      "iconUrl": "https://raw.githubusercontent.com/ManyConnection/nani-taberu-roulette/main/assets/icon.png"
+      "iconUrl": "https://raw.githubusercontent.com/ManyConnection/nani-taberu-roulette/main/assets/icon.png",
+      "testflightUrl": "https://appstoreconnect.apple.com/apps/6758812469/testflight/ios",
+      "appStoreConnectId": "6758812469"
     },
     {
       "id": 42,
@@ -756,7 +838,9 @@
         "crashFree": false
       },
       "testNotes": "",
-      "iconUrl": "https://raw.githubusercontent.com/ManyConnection/okusuri-techo/main/assets/icon.png"
+      "iconUrl": "https://raw.githubusercontent.com/ManyConnection/okusuri-techo/main/assets/icon.png",
+      "testflightUrl": "https://appstoreconnect.apple.com/apps/6758827402/testflight/ios",
+      "appStoreConnectId": "6758827402"
     },
     {
       "id": 43,
@@ -774,7 +858,9 @@
         "crashFree": false
       },
       "testNotes": "",
-      "iconUrl": "https://raw.githubusercontent.com/ManyConnection/pet-care-diary/main/assets/icon.png"
+      "iconUrl": "https://raw.githubusercontent.com/ManyConnection/pet-care-diary/main/assets/icon.png",
+      "testflightUrl": "https://appstoreconnect.apple.com/apps/6758827477/testflight/ios",
+      "appStoreConnectId": "6758827477"
     },
     {
       "id": 44,
@@ -792,7 +878,9 @@
         "crashFree": false
       },
       "testNotes": "",
-      "iconUrl": "https://raw.githubusercontent.com/ManyConnection/reading-meter-lite/main/assets/icon.png"
+      "iconUrl": "https://raw.githubusercontent.com/ManyConnection/reading-meter-lite/main/assets/icon.png",
+      "testflightUrl": "https://appstoreconnect.apple.com/apps/6758907969/testflight/ios",
+      "appStoreConnectId": "6758907969"
     },
     {
       "id": 45,
@@ -810,7 +898,9 @@
         "crashFree": false
       },
       "testNotes": "",
-      "iconUrl": "https://raw.githubusercontent.com/ManyConnection/roommate-seisan/main/assets/icon.png"
+      "iconUrl": "https://raw.githubusercontent.com/ManyConnection/roommate-seisan/main/assets/icon.png",
+      "testflightUrl": "https://appstoreconnect.apple.com/apps/6758827329/testflight/ios",
+      "appStoreConnectId": "6758827329"
     },
     {
       "id": 46,
@@ -828,7 +918,9 @@
         "crashFree": false
       },
       "testNotes": "",
-      "iconUrl": "https://raw.githubusercontent.com/ManyConnection/shikaku-quiz-maker/main/assets/icon.png"
+      "iconUrl": "https://raw.githubusercontent.com/ManyConnection/shikaku-quiz-maker/main/assets/icon.png",
+      "testflightUrl": "https://appstoreconnect.apple.com/apps/6758827333/testflight/ios",
+      "appStoreConnectId": "6758827333"
     },
     {
       "id": 47,
@@ -846,7 +938,9 @@
         "crashFree": false
       },
       "testNotes": "",
-      "iconUrl": "https://raw.githubusercontent.com/ManyConnection/subscription-manager/main/assets/icon.png"
+      "iconUrl": "https://raw.githubusercontent.com/ManyConnection/subscription-manager/main/assets/icon.png",
+      "testflightUrl": "https://appstoreconnect.apple.com/apps/6758827413/testflight/ios",
+      "appStoreConnectId": "6758827413"
     },
     {
       "id": 48,
@@ -864,7 +958,9 @@
         "crashFree": false
       },
       "testNotes": "",
-      "iconUrl": "https://raw.githubusercontent.com/ManyConnection/lunch-picker/main/assets/icon.png"
+      "iconUrl": "https://raw.githubusercontent.com/ManyConnection/lunch-picker/main/assets/icon.png",
+      "testflightUrl": "https://appstoreconnect.apple.com/apps/6759097887/testflight/ios",
+      "appStoreConnectId": "6759097887"
     },
     {
       "id": 49,
@@ -882,7 +978,9 @@
         "crashFree": false
       },
       "testNotes": "",
-      "iconUrl": "https://raw.githubusercontent.com/ManyConnection/habit-tracker-rpg/main/assets/icon.png"
+      "iconUrl": "https://raw.githubusercontent.com/ManyConnection/habit-tracker-rpg/main/assets/icon.png",
+      "testflightUrl": "https://appstoreconnect.apple.com/apps/6758827357/testflight/ios",
+      "appStoreConnectId": "6758827357"
     },
     {
       "id": 50,
